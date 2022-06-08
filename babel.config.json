@@ -1,0 +1,17 @@
+{
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-typescript",
+    [
+      "@babel/preset-react",
+      {
+        "development": false
+      }
+    ]
+  ]
+}
+
+// for more detail, see below tutorial
+// https://babeljs.io/setup#installation
+// https://babeljs.io/docs/en/babel-preset-react#docsNav
+// https://babeljs.io/docs/en/babel-preset-typescript

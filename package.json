@@ -4,7 +4,9 @@
   "description": "starter kit for reactjs app using webpack bundler",
   "main": "src/app/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config webpack.prod.ts",
+    "build-dev": "webpack --config webpack.dev.ts",
+    "start": "webpack serve --config webpack.dev.ts --open"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,29 @@
   "bugs": {
     "url": "https://github.com/haingocvu/react-webpack-starter-kit/issues"
   },
-  "homepage": "https://github.com/haingocvu/react-webpack-starter-kit#readme"
+  "homepage": "https://github.com/haingocvu/react-webpack-starter-kit#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
+    "@babel/preset-typescript": "^7.17.12",
+    "@types/node": "^17.0.41",
+    "@types/webpack": "^5.28.0",
+    "babel-loader": "^8.2.5",
+    "html-loader": "^3.1.0",
+    "html-webpack-plugin": "^5.5.0",
+    "interpolate-html-plugin": "^4.0.0",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.2",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "styled-components": "^5.3.5"
+  }
 }

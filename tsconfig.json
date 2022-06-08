@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    // react type checking
+    "jsx": "react",
+    // options for using typescript to define webpack config file
+    // https://webpack.js.org/configuration/configuration-languages/#typescript
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "commonjs",
+    // these configs from ts homepage, view tutorial for using ts for type checking and babel for transpile
+    // https://www.typescriptlang.org/docs/handbook/babel-with-typescript.html
+    // Ensure that .d.ts files are created by tsc, but not .js files
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    // Ensure that Babel can safely transpile files in the TypeScript project
+    "isolatedModules": true
+  }
+}
