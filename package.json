@@ -4,7 +4,8 @@
   "description": "starter kit for reactjs app using webpack bundler",
   "scripts": {
     "build": "webpack --config webpack.prod.ts",
-    "start": "webpack serve --config webpack.dev.ts --open"
+    "start": "webpack serve --config webpack.dev.ts --open",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -33,12 +34,16 @@
     "@typescript-eslint/parser": "^5.27.1",
     "babel-loader": "^8.2.5",
     "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
     "eslint-webpack-plugin": "^3.1.1",
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.0",
+    "prettier": "2.6.2",
     "stylelint": "^14.8.5",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-prettier-scss": "^0.0.1",
@@ -56,5 +61,8 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "styled-components": "^5.3.5"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
