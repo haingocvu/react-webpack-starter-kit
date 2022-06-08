@@ -2,6 +2,7 @@ import * as path from 'path';
 import * as webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
+import StylelintPlugin from 'stylelint-webpack-plugin';
 
 const config: webpack.Configuration = {
   entry: {
@@ -39,6 +40,7 @@ const config: webpack.Configuration = {
       template: 'public/index.html',
     }),
     new ESLintPlugin(),
+    new StylelintPlugin(),
   ],
   resolve: { extensions: ['*', '.js', '.jsx', '.ts', '.tsx'] },
 };
