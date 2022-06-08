@@ -1,7 +1,7 @@
 import * as path from 'path';
 import * as webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import InterpolateHtmlPlugin from 'interpolate-html-plugin';
+import ESLintPlugin from 'eslint-webpack-plugin';
 
 const config: webpack.Configuration = {
   entry: {
@@ -38,9 +38,7 @@ const config: webpack.Configuration = {
       title: 'Production',
       template: 'public/index.html',
     }),
-    new InterpolateHtmlPlugin({
-      PUBLIC_URL: path.resolve(__dirname, 'public'),
-    }),
+    new ESLintPlugin(),
   ],
   resolve: { extensions: ['*', '.js', '.jsx', '.ts', '.tsx'] },
 };
