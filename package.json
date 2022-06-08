@@ -1,0 +1,24 @@
+{
+  "name": "react-webpack-starter-kit",
+  "version": "0.0.1",
+  "description": "starter kit for reactjs app using webpack bundler",
+  "main": "src/app/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haingocvu/react-webpack-starter-kit.git"
+  },
+  "keywords": [
+    "react starter kit",
+    "react webpack starter kit",
+    "react webpack"
+  ],
+  "author": "ngochai.200290@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/haingocvu/react-webpack-starter-kit/issues"
+  },
+  "homepage": "https://github.com/haingocvu/react-webpack-starter-kit#readme"
+}
