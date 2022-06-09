@@ -5,7 +5,7 @@ node_modules
 dist
 
 # IDE
-.vscode
+# .vscode
 
 # Logs
 logs

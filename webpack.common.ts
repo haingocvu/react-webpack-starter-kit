@@ -42,7 +42,7 @@ const config: webpack.Configuration = {
     new ESLintPlugin(),
     new StylelintPlugin(),
   ],
-  resolve: { extensions: ['*', '.js', '.jsx', '.ts', '.tsx'] },
+  resolve: { extensions: ['*', '.js', '.jsx', '.ts', '.tsx', 'css'] },
 };
 
 export default config;

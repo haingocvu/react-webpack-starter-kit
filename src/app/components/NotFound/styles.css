@@ -1,0 +1,17 @@
+.red {
+  color: red;
+  display: flex;
+}
+
+.lg {
+  font-size: 10em;
+}
+
+::placeholder {
+  color: gray;
+}
+@media (min-resolution: 2dppx) {
+  .image {
+    width: 100px;
+  }
+}

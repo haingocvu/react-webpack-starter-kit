@@ -4,7 +4,7 @@
   "description": "starter kit for reactjs app using webpack bundler",
   "scripts": {
     "build": "webpack --config webpack.prod.ts",
-    "start": "webpack serve --config webpack.dev.ts --open",
+    "start": "webpack serve --config webpack.dev.ts",
     "prepare": "husky install"
   },
   "repository": {
@@ -33,6 +33,7 @@
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
     "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
     "eslint": "^8.17.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
@@ -43,7 +44,12 @@
     "html-webpack-plugin": "^5.5.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "postcss": "^8.4.14",
+    "postcss-loader": "^7.0.0",
+    "postcss-preset-env": "^7.7.1",
     "prettier": "2.6.2",
+    "style-loader": "^3.3.1",
     "stylelint": "^14.8.5",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-prettier-scss": "^0.0.1",
@@ -58,9 +64,23 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "browserslist": "^4.20.4",
+    "clsx": "^1.1.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "styled-components": "^5.3.5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
