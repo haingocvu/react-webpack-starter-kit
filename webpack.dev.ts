@@ -7,11 +7,15 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import common from './webpack.common';
 
 const devConfig: webpack.Configuration = merge(common, {
+  output: {
+    publicPath: '/',
+  },
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
     static: './dist',
     port: 3000,
+    historyApiFallback: true,
   },
   module: {
     rules: [
