@@ -66,6 +66,7 @@
   "dependencies": {
     "browserslist": "^4.20.4",
     "clsx": "^1.1.1",
+    "core-js": "^3.22.8",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "styled-components": "^5.3.5"
