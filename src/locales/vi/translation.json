@@ -1,3 +1,6 @@
 {
-  "welcome": "Chào mừng"
+  "welcome": "Chào mừng",
+  "pageNotFound": "Trang không tìm thấy",
+  "404": "404",
+  "goBack": "Quay lại"
 }

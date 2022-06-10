@@ -1,16 +1,17 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 import styles from './styles.css';
+import { messages } from './messages';
 
 function NotFound() {
+  const { t } = useTranslation();
   return (
     <>
-      <Helmet>
-        <title>404</title>
-      </Helmet>
-      <div className={clsx(styles.red, styles.lg)}>NotFound page</div>
+      <div className={clsx(styles.red, styles.lg)}>
+        {t(messages.notFoundPage())}
+      </div>
     </>
   );
 }

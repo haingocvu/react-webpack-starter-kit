@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import NotFound from './components/NotFound';
+import { NotFoundPage } from './pages/NotFound/Loadable';
 import { HomePage } from './pages/Home/Loadable';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='*' element={<NotFound />} />
+        <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </>
   );
