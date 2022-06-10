@@ -16,6 +16,7 @@ const devConfig: webpack.Configuration = merge(common, {
     static: './dist',
     port: 3000,
     historyApiFallback: true,
+    hot: true,
   },
   module: {
     rules: [

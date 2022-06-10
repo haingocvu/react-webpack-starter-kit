@@ -6,9 +6,7 @@ interface Opts {
 type Unpromisify<T> = T extends Promise<infer P> ? P : never;
 
 export const lazyLoad = <
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   T extends Promise<any>,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   U extends React.ComponentType<any>,
 >(
   importFunc: () => T,
@@ -25,7 +23,6 @@ export const lazyLoad = <
   const LazyComponent = lazy(lazyFactory);
 
   const LazyComponentReturn = (props: React.ComponentProps<U>): JSX.Element => (
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     <Suspense fallback={opts.fallback!}>
       <LazyComponent {...props} />
     </Suspense>

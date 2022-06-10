@@ -1,16 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
+
+import { messages } from './messages';
 
 export function Home() {
+  const { t, i18n } = useTranslation();
   return (
     <>
-      <Helmet>
-        <title>Home</title>
+      <Helmet htmlAttributes={{ lang: i18n.language }}>
+        <title>{t(messages.welcome())}</title>
+        <meta name='description' content='Home page' />
       </Helmet>
       <main>
-        <h2>Welcome to the homepage!</h2>
-        <p>You can do this, I believe in you.</p>
+        <h2>{t(messages.welcome())}</h2>
       </main>
       <nav>
         <Link to='/abc'>About</Link>
