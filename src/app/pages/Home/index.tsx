@@ -7,6 +7,7 @@ import { messages } from './messages';
 
 export function Home() {
   const { t, i18n } = useTranslation();
+  console.log(process.env.NODE_ENV);
   return (
     <>
       <Helmet htmlAttributes={{ lang: i18n.language }}>
