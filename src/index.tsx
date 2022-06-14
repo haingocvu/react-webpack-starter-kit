@@ -3,17 +3,26 @@ import 'core-js/stable';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { Provider } from 'react-redux';
 
 import App from './app/index';
 import './locales/i18n';
+import { configureAppStore } from 'store/configureStore';
+import { ThemeProvider } from 'styles/theme/ThemeProvider';
 
 const root = createRoot(document.getElementById('root'));
+const store = configureAppStore();
+
 root.render(
-  <HelmetProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </HelmetProvider>,
+  <Provider store={store}>
+    <ThemeProvider>
+      <HelmetProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </HelmetProvider>
+    </ThemeProvider>
+  </Provider>,
 );
 
 // Hot reloadable translation json files
