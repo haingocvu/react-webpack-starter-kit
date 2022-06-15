@@ -2,10 +2,12 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from 'utils/@reduxjs/toolkit';
 import { useInjectReducer } from 'utils/redux-injectors';
 import { getThemeFromStorage } from 'styles/theme/utils';
-import { ThemeKeyType, ThemeState } from './types';
+import { ThemeKeyType, ThemeState, ThemeConfigurationsType } from './types';
+import { themes } from 'styles/theme/themes';
 
 export const initialState: ThemeState = {
   selected: getThemeFromStorage() || 'system',
+  themeConfigurations: themes,
 };
 
 const slice = createSlice({
@@ -14,6 +16,12 @@ const slice = createSlice({
   reducers: {
     changeTheme(state, action: PayloadAction<ThemeKeyType>) {
       state.selected = action.payload;
+    },
+    changeThemeConfiguration(
+      state,
+      action: PayloadAction<ThemeConfigurationsType>,
+    ) {
+      state.themeConfigurations = action.payload;
     },
   },
 });
