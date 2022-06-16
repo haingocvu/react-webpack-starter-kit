@@ -9,7 +9,6 @@ import common from './webpack.common';
 
 const prodConfig: webpack.Configuration = merge(common, {
   mode: 'production',
-  devtool: 'source-map',
   module: {
     rules: [
       {
