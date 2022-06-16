@@ -9,6 +9,8 @@ import App from './app/index';
 import './locales/i18n';
 import { configureAppStore } from 'store/configureStore';
 import { ThemeProvider } from 'styles/theme/ThemeProvider';
+import reportWebVitals from 'reportWebVitals';
+import { ServiceProvider } from 'services/ServiceProvider';
 
 const root = createRoot(document.getElementById('root'));
 const store = configureAppStore();
@@ -18,7 +20,9 @@ root.render(
     <ThemeProvider>
       <HelmetProvider>
         <BrowserRouter>
-          <App />
+          <ServiceProvider>
+            <App />
+          </ServiceProvider>
         </BrowserRouter>
       </HelmetProvider>
     </ThemeProvider>
@@ -31,3 +35,8 @@ if (module.hot) {
     // No need to render the App again because i18next works with the hooks
   });
 }
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals(console.log);

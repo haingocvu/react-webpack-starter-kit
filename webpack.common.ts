@@ -3,6 +3,7 @@ import * as webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import StylelintPlugin from 'stylelint-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 
 const config: webpack.Configuration = {
   entry: {
@@ -41,6 +42,9 @@ const config: webpack.Configuration = {
     }),
     new ESLintPlugin(),
     new StylelintPlugin(),
+    new CopyPlugin({
+      patterns: [{ from: 'public/robots.txt', to: 'robots.txt' }],
+    }),
   ],
   resolve: {
     extensions: ['*', '.js', '.jsx', '.ts', '.tsx', '.css'],

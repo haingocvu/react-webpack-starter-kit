@@ -7,6 +7,7 @@ import { createInjectorsEnhancer } from 'redux-injectors';
 import createSagaMiddleware from 'redux-saga';
 
 import { createReducer } from './reducers';
+import { appApi } from 'services/rtkApi';
 
 export function configureAppStore() {
   const reduxSagaMonitorOptions = {};
@@ -14,7 +15,7 @@ export function configureAppStore() {
   const { run: runSaga } = sagaMiddleware;
 
   // Create the store with saga middleware
-  const middlewares = [sagaMiddleware];
+  const middlewares = [sagaMiddleware, appApi.middleware];
 
   const enhancers = [
     createInjectorsEnhancer({
@@ -24,7 +25,10 @@ export function configureAppStore() {
   ] as StoreEnhancer[];
 
   const store = configureStore({
-    reducer: createReducer(),
+    reducer: createReducer({
+      // app api reducer for rtk query
+      [appApi.reducerPath]: appApi.reducer,
+    }),
     middleware: getDefaultMiddleware =>
       getDefaultMiddleware().concat(middlewares),
     devTools: process.env.NODE_ENV !== 'production',
