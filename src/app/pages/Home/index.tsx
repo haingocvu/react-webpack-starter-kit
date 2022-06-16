@@ -4,9 +4,11 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 
 import { messages } from './messages';
+import { useGetPokemonByNameQuery } from 'services/rtkApi/endpoints/getPokemonByName';
 
 export function Home() {
   const { t, i18n } = useTranslation();
+  const { isLoading, data, isError } = useGetPokemonByNameQuery('bulbasaur');
   console.log(process.env.NODE_ENV);
   return (
     <>

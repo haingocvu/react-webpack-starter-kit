@@ -10,6 +10,7 @@ import './locales/i18n';
 import { configureAppStore } from 'store/configureStore';
 import { ThemeProvider } from 'styles/theme/ThemeProvider';
 import reportWebVitals from 'reportWebVitals';
+import { ServiceProvider } from 'services/ServiceProvider';
 
 const root = createRoot(document.getElementById('root'));
 const store = configureAppStore();
@@ -19,7 +20,9 @@ root.render(
     <ThemeProvider>
       <HelmetProvider>
         <BrowserRouter>
-          <App />
+          <ServiceProvider>
+            <App />
+          </ServiceProvider>
         </BrowserRouter>
       </HelmetProvider>
     </ThemeProvider>

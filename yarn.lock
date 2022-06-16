@@ -5226,6 +5226,11 @@ redent@^3.0.0:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
 
+redux-dynamic-middlewares@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/redux-dynamic-middlewares/-/redux-dynamic-middlewares-2.2.0.tgz#6835dd6d4f2fd975266376b45dcae0141320ae97"
+  integrity sha512-GHESQC+Y0PV98ZBoaC6br6cDOsNiM1Cu4UleGMqMWCXX03jIr3BoozYVrRkLVVAl4sC216chakMnZOu6SwNdGA==
+
 redux-injectors@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/redux-injectors/-/redux-injectors-2.0.0.tgz#4a15a4bd192b3ffe67c582374cafb5095c1e3e29"
