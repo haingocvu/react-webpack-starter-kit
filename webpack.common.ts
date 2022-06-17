@@ -4,6 +4,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import StylelintPlugin from 'stylelint-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
+import { InjectManifest } from 'workbox-webpack-plugin';
 
 const config: webpack.Configuration = {
   entry: {
@@ -44,6 +45,12 @@ const config: webpack.Configuration = {
     new StylelintPlugin(),
     new CopyPlugin({
       patterns: [{ from: 'public/robots.txt', to: 'robots.txt' }],
+    }),
+    new InjectManifest({
+      swSrc: './sw.js',
+      swDest: 'service-worker.js',
+      maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
+      // Any other config if needed.
     }),
   ],
   resolve: {
