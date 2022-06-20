@@ -43,7 +43,13 @@ const config: webpack.Configuration = {
     new ESLintPlugin(),
     new StylelintPlugin(),
     new CopyPlugin({
-      patterns: [{ from: 'public/robots.txt', to: 'robots.txt' }],
+      patterns: [
+        { from: 'public/robots.txt', to: '' },
+        { from: 'public/manifest.json', to: '' },
+        { from: 'public/logo192.png', to: '' },
+        { from: 'public/logo512.png', to: '' },
+        { from: 'public/favicon.ico', to: '' },
+      ],
     }),
   ],
   resolve: {

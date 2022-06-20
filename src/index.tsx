@@ -10,6 +10,7 @@ import './locales/i18n';
 import { configureAppStore } from 'store/configureStore';
 import { ThemeProvider } from 'styles/theme/ThemeProvider';
 import reportWebVitals from 'reportWebVitals';
+import registerServiceWorker from './serviceWorkerRegistration';
 
 const root = createRoot(document.getElementById('root'));
 const store = configureAppStore();
@@ -37,3 +38,5 @@ if (module.hot) {
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals(console.log);
+
+registerServiceWorker();

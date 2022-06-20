@@ -31,8 +31,8 @@ const prodConfig: webpack.Configuration = merge(common, {
   },
   plugins: [
     new InjectManifest({
-      swSrc: './sw.js',
-      swDest: 'service-worker.js',
+      swSrc: './src-sw.js',
+      swDest: 'sw.js',
       maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
       // Any other config if needed.
     }),
