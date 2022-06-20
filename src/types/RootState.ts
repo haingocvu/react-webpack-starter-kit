@@ -4,10 +4,8 @@
   You have to declare them here manually
 */
 import { ThemeState } from 'styles/theme/slice/types';
-import { appApi } from 'services/rtkApi';
 
 export interface RootState {
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
   theme?: ThemeState;
-  [appApi.reducerPath]: any;
 }

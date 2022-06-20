@@ -1,5 +1,4 @@
 import React from 'react';
-import 'core-js/stable';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
@@ -10,7 +9,7 @@ import './locales/i18n';
 import { configureAppStore } from 'store/configureStore';
 import { ThemeProvider } from 'styles/theme/ThemeProvider';
 import reportWebVitals from 'reportWebVitals';
-import { ServiceProvider } from 'services/ServiceProvider';
+import registerServiceWorker from './serviceWorkerRegistration';
 
 const root = createRoot(document.getElementById('root'));
 const store = configureAppStore();
@@ -20,9 +19,7 @@ root.render(
     <ThemeProvider>
       <HelmetProvider>
         <BrowserRouter>
-          <ServiceProvider>
-            <App />
-          </ServiceProvider>
+          <App />
         </BrowserRouter>
       </HelmetProvider>
     </ThemeProvider>
@@ -40,3 +37,5 @@ if (module.hot) {
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals(console.log);
+
+registerServiceWorker();
