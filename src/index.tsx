@@ -1,5 +1,4 @@
 import React from 'react';
-import 'core-js/stable';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';

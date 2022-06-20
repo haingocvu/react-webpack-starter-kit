@@ -4,9 +4,11 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import StylelintPlugin from 'stylelint-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
+import { HtmlWebpackSkipAssetsPlugin } from 'html-webpack-skip-assets-plugin';
 
 const config: webpack.Configuration = {
   entry: {
+    polyfills: './src/polyfills.ts',
     main: './src/index.tsx',
   },
   output: {
@@ -39,7 +41,12 @@ const config: webpack.Configuration = {
     new HtmlWebpackPlugin({
       title: 'Production',
       template: 'public/index.html',
+      skipAssets: [
+        'polyfills.**.js',
+        asset => asset.attributes && asset.attributes['x-skip'],
+      ],
     }),
+    new HtmlWebpackSkipAssetsPlugin(),
     new ESLintPlugin(),
     new StylelintPlugin(),
     new CopyPlugin({
