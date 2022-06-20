@@ -1,6 +1,7 @@
 import * as webpack from 'webpack';
 import { merge } from 'webpack-merge';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { InjectManifest } from 'workbox-webpack-plugin';
 
 import common from './webpack.common';
 
@@ -29,6 +30,12 @@ const prodConfig: webpack.Configuration = merge(common, {
     ],
   },
   plugins: [
+    new InjectManifest({
+      swSrc: './sw.js',
+      swDest: 'service-worker.js',
+      maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
+      // Any other config if needed.
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
