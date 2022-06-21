@@ -5,7 +5,8 @@
   "scripts": {
     "build": "webpack --config webpack.prod.ts",
     "start": "webpack serve --config webpack.dev.ts",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "analyze": "webpack --config webpack.prod.analyze.ts"
   },
   "repository": {
     "type": "git",
@@ -63,6 +64,7 @@
     "ts-node": "^10.8.1",
     "typescript": "^4.7.3",
     "webpack": "^5.73.0",
+    "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.2",
     "webpack-merge": "^5.8.0",
