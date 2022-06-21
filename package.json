@@ -6,7 +6,7 @@
     "build": "webpack --config webpack.prod.ts",
     "start": "webpack serve --config webpack.dev.ts",
     "prepare": "husky install",
-    "analyze": "webpack --config webpack.prod.analyze.ts"
+    "analyze": "webpack --config webpack.prod-analyze.ts"
   },
   "repository": {
     "type": "git",

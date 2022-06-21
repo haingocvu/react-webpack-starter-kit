@@ -40,6 +40,17 @@ const prodConfig: webpack.Configuration = merge(common, {
       filename: '[name].[contenthash].css',
     }),
   ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+        },
+      },
+    },
+  },
 });
 
 export default prodConfig;
