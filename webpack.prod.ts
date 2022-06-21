@@ -1,3 +1,4 @@
+import * as path from 'path';
 import * as webpack from 'webpack';
 import { merge } from 'webpack-merge';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -9,6 +10,15 @@ import common from './webpack.common';
 // https://webpack.js.org/guides/production/
 
 const prodConfig: webpack.Configuration = merge(common, {
+  entry: {
+    polyfills: { import: './src/polyfills.ts', filename: '[name].bundle.js' },
+    main: './src/index.tsx',
+  },
+  output: {
+    filename: '[name].[contenthash].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+  },
   mode: 'production',
   devtool: 'source-map',
   module: {

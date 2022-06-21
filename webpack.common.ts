@@ -7,15 +7,6 @@ import CopyPlugin from 'copy-webpack-plugin';
 import { HtmlWebpackSkipAssetsPlugin } from 'html-webpack-skip-assets-plugin';
 
 const config: webpack.Configuration = {
-  entry: {
-    polyfills: './src/polyfills.ts',
-    main: './src/index.tsx',
-  },
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true,
-  },
   module: {
     rules: [
       {
