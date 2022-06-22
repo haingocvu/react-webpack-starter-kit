@@ -6,7 +6,8 @@
     "build": "webpack --config webpack.prod.ts",
     "start": "webpack serve --config webpack.dev.ts",
     "prepare": "husky install",
-    "analyze": "webpack --config webpack.prod-analyze.ts"
+    "analyze": "webpack --config webpack.prod-analyze.ts",
+    "checkTs": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -109,6 +110,11 @@
     ]
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "*.{ts,tsx,js,jsx}": [
+      "yarn run eslint --fix"
+    ],
+    "*.{md,json}": [
+      "prettier --write"
+    ]
   }
 }
