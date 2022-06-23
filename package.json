@@ -2,6 +2,7 @@
   "name": "react-webpack-starter-kit",
   "version": "0.0.1",
   "description": "starter kit for reactjs app using webpack bundler",
+  "private": true,
   "scripts": {
     "build": "webpack --config webpack.prod.ts",
     "start": "webpack serve --config webpack.dev.ts",
