@@ -51,6 +51,9 @@ const devConfig: webpack.Configuration = merge(common, {
       filename: '[name].css',
     }),
   ],
+  optimization: {
+    runtimeChunk: 'single',
+  },
 });
 
 export default devConfig;

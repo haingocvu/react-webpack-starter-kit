@@ -68,6 +68,7 @@ const prodConfig: webpack.Configuration = merge(common, {
       '...',
       new CssMinimizerPlugin(),
     ],
+    runtimeChunk: 'single',
   },
 });
 
