@@ -29,7 +29,7 @@ const devConfig: webpack.Configuration = merge(common, {
   module: {
     rules: [
       {
-        test: /\.css$/i,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           'style-loader',
           {
@@ -40,6 +40,7 @@ const devConfig: webpack.Configuration = merge(common, {
             },
           },
           'postcss-loader',
+          'sass-loader',
         ],
       },
     ],

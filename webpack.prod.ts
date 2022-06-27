@@ -3,6 +3,7 @@ import * as webpack from 'webpack';
 import { merge } from 'webpack-merge';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { InjectManifest } from 'workbox-webpack-plugin';
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 
 import common from './webpack.common';
 
@@ -24,7 +25,7 @@ const prodConfig: webpack.Configuration = merge(common, {
   module: {
     rules: [
       {
-        test: /\.css$/i,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -35,6 +36,7 @@ const prodConfig: webpack.Configuration = merge(common, {
             },
           },
           'postcss-loader',
+          'sass-loader',
         ],
       },
     ],
@@ -60,6 +62,11 @@ const prodConfig: webpack.Configuration = merge(common, {
         },
       },
     },
+    minimizer: [
+      // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
+      '...',
+      new CssMinimizerPlugin(),
+    ],
   },
 });
 
