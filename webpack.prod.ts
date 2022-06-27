@@ -4,6 +4,7 @@ import { merge } from 'webpack-merge';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { InjectManifest } from 'workbox-webpack-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 import common from './webpack.common';
 
@@ -51,6 +52,15 @@ const prodConfig: webpack.Configuration = merge(common, {
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
+    }),
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        },
+        mode: 'write-references',
+      },
     }),
   ],
   optimization: {
