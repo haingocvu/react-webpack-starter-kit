@@ -17,6 +17,7 @@ const prodConfig: webpack.Configuration = merge(common, {
   },
   output: {
     filename: '[name].[contenthash].bundle.js',
+    chunkFilename: '[id].[contenthash].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },

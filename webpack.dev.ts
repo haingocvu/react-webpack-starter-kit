@@ -14,6 +14,7 @@ const devConfig: webpack.Configuration = merge(common, {
   },
   output: {
     filename: '[name].bundle.js',
+    chunkFilename: '[id].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     clean: true,
