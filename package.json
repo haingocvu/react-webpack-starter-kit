@@ -1,7 +1,8 @@
 {
   "name": "react-webpack-starter-kit",
   "sideEffects": [
-    "./src/polyfills.ts"
+    "./src/polyfills.ts",
+    "./src/locales/i18n.ts"
   ],
   "version": "0.0.1",
   "description": "starter kit for reactjs app using webpack bundler",
