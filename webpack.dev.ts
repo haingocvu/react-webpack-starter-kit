@@ -4,6 +4,7 @@ import { merge } from 'webpack-merge';
 // in case you run into any typescript error when configuring `devServer`
 import 'webpack-dev-server';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import Dotenv from 'dotenv-webpack';
 
 import common from './webpack.common';
 
@@ -49,6 +50,10 @@ const devConfig: webpack.Configuration = merge(common, {
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].css',
+    }),
+    new Dotenv({
+      path: './.env.local',
+      safe: true,
     }),
   ],
   optimization: {

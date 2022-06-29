@@ -5,6 +5,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { InjectManifest } from 'workbox-webpack-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import Dotenv from 'dotenv-webpack';
 
 import common from './webpack.common';
 
@@ -61,6 +62,10 @@ const prodConfig: webpack.Configuration = merge(common, {
         },
         mode: 'write-references',
       },
+    }),
+    new Dotenv({
+      path: './.env.production',
+      safe: true,
     }),
   ],
   optimization: {
