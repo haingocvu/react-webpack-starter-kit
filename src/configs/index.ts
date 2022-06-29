@@ -1,22 +1,11 @@
 const env: string = process.env.NODE_ENV;
-
-export const envNameConfig = {
-  development: 'development',
-  production: 'production',
-};
-
+const API_URL = process.env.API_URL;
 export interface ConfigClient {
   API_SERVER: string;
 }
 
-const listConfigs = {
-  [envNameConfig.development]: {
-    API_SERVER: '/DesktopModules',
-  },
-  [envNameConfig.production]: {
-    API_SERVER: '/DesktopModules',
-  },
+export const Config: ConfigClient = {
+  API_SERVER: API_URL,
 };
 
-export const Config: ConfigClient = listConfigs[env];
 export default env;
