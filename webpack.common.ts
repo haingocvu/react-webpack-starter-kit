@@ -28,6 +28,15 @@ const config: webpack.Configuration = {
           filename: 'assets/[hash][ext][query]',
         },
       },
+      {
+        test: /\.txt$/i,
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 4 * 1024, // 4kb
+          },
+        },
+      },
     ],
   },
   // for more detail, see below
@@ -60,7 +69,7 @@ const config: webpack.Configuration = {
     }),
   ],
   resolve: {
-    extensions: ['*', '.js', '.jsx', '.ts', '.tsx', '.css'],
+    extensions: ['*', '.js', '.jsx', '.ts', '.tsx', '.css', '.txt'],
     modules: ['node_modules', path.join(__dirname, 'src')],
   },
 };
