@@ -18,8 +18,8 @@ const prodConfig: webpack.Configuration = merge(common, {
     main: './src/index.tsx',
   },
   output: {
-    filename: '[name].[contenthash].bundle.js',
-    chunkFilename: '[id].[contenthash].bundle.js',
+    filename: 'static/js/[name].[contenthash].bundle.js',
+    chunkFilename: 'static/js/[id].[contenthash].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
@@ -52,7 +52,7 @@ const prodConfig: webpack.Configuration = merge(common, {
       // Any other config if needed.
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
+      filename: 'static/css/[name].[contenthash].css',
     }),
     new ForkTsCheckerWebpackPlugin({
       typescript: {
