@@ -1,7 +1,11 @@
+import * as path from 'path';
 import * as webpack from 'webpack';
 import { merge } from 'webpack-merge';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { InjectManifest } from 'workbox-webpack-plugin';
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import Dotenv from 'dotenv-webpack';
 
 import common from './webpack.common';
 
@@ -9,12 +13,22 @@ import common from './webpack.common';
 // https://webpack.js.org/guides/production/
 
 const prodConfig: webpack.Configuration = merge(common, {
+  entry: {
+    polyfills: { import: './src/polyfills.ts', filename: '[name].bundle.js' },
+    main: './src/index.tsx',
+  },
+  output: {
+    filename: 'static/js/[name].[contenthash].bundle.js',
+    chunkFilename: 'static/js/[id].[contenthash].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+  },
   mode: 'production',
   devtool: 'source-map',
   module: {
     rules: [
       {
-        test: /\.css$/i,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -25,6 +39,7 @@ const prodConfig: webpack.Configuration = merge(common, {
             },
           },
           'postcss-loader',
+          'sass-loader',
         ],
       },
     ],
@@ -37,9 +52,40 @@ const prodConfig: webpack.Configuration = merge(common, {
       // Any other config if needed.
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
+      filename: 'static/css/[name].[contenthash].css',
+    }),
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        },
+        mode: 'write-references',
+      },
+    }),
+    new Dotenv({
+      path: './.env.production',
+      safe: true,
     }),
   ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+        },
+      },
+    },
+    minimizer: [
+      // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
+      '...',
+      new CssMinimizerPlugin(),
+    ],
+    runtimeChunk: 'single',
+    moduleIds: 'deterministic',
+  },
 });
 
 export default prodConfig;

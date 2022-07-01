@@ -1,6 +1,6 @@
 import { lazyLoad } from 'utils/loadable';
 
 export const NotFoundPage = lazyLoad(
-  () => import('./index'),
+  () => import(/* webpackPrefetch: true */ './index'),
   module => module.NotFoundPage,
 );

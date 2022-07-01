@@ -11,3 +11,6 @@ dist
 logs
 *.log
 .DS_Store
+
+# jest
+__snapshots__/

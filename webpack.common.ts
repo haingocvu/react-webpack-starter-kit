@@ -5,17 +5,9 @@ import ESLintPlugin from 'eslint-webpack-plugin';
 import StylelintPlugin from 'stylelint-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import { HtmlWebpackSkipAssetsPlugin } from 'html-webpack-skip-assets-plugin';
+import InterpolateHtmlPlugin from 'interpolate-html-plugin';
 
 const config: webpack.Configuration = {
-  entry: {
-    polyfills: './src/polyfills.ts',
-    main: './src/index.tsx',
-  },
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true,
-  },
   module: {
     rules: [
       {
@@ -32,6 +24,18 @@ const config: webpack.Configuration = {
       {
         test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'assets/[hash][ext][query]',
+        },
+      },
+      {
+        test: /\.txt$/i,
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 4 * 1024, // 4kb
+          },
+        },
       },
     ],
   },
@@ -51,17 +55,21 @@ const config: webpack.Configuration = {
     new StylelintPlugin(),
     new CopyPlugin({
       patterns: [
-        { from: 'public/robots.txt', to: '' },
-        { from: 'public/manifest.json', to: '' },
-        { from: 'public/logo192.png', to: '' },
-        { from: 'public/logo512.png', to: '' },
-        { from: 'public/favicon.ico', to: '' },
-        { from: 'public/maskable_icon.png', to: '' },
+        {
+          from: 'public',
+          to: '',
+          globOptions: {
+            ignore: ['**/index.html'],
+          },
+        },
       ],
+    }),
+    new InterpolateHtmlPlugin({
+      PUBLIC_URL: '.',
     }),
   ],
   resolve: {
-    extensions: ['*', '.js', '.jsx', '.ts', '.tsx', '.css'],
+    extensions: ['*', '.js', '.jsx', '.ts', '.tsx', '.css', '.txt'],
     modules: ['node_modules', path.join(__dirname, 'src')],
   },
 };

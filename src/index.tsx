@@ -10,9 +10,12 @@ import { configureAppStore } from 'store/configureStore';
 import { ThemeProvider } from 'styles/theme/ThemeProvider';
 import reportWebVitals from 'reportWebVitals';
 import registerServiceWorker from './serviceWorkerRegistration';
+import exampleText from './example.txt';
 
 const root = createRoot(document.getElementById('root'));
 const store = configureAppStore();
+
+console.log(exampleText);
 
 root.render(
   <Provider store={store}>
