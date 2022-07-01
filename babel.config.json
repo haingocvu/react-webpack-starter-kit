@@ -8,7 +8,12 @@
         "development": false
       }
     ]
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": ["dynamic-import-node"]
+    }
+  }
 }
 
 // for more detail, see below tutorial
