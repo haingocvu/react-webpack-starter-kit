@@ -13,7 +13,8 @@
     "test": {
       "plugins": ["dynamic-import-node"]
     }
-  }
+  },
+  "plugins": ["macros"]
 }
 
 // for more detail, see below tutorial
