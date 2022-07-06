@@ -5,6 +5,7 @@ import { merge } from 'webpack-merge';
 import 'webpack-dev-server';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import Dotenv from 'dotenv-webpack';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 import common from './webpack.common';
 
@@ -55,6 +56,7 @@ const devConfig: webpack.Configuration = merge(common, {
       path: './.env.local',
       safe: true,
     }),
+    new ReactRefreshWebpackPlugin(),
   ],
   optimization: {
     runtimeChunk: 'single',
