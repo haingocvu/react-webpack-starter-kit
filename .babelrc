@@ -11,7 +11,7 @@
   ],
   "env": {
     "test": {
-      "plugins": ["dynamic-import-node"]
+      "plugins": ["dynamic-import-node", "react-refresh/babel"]
     }
   },
   "plugins": ["macros"]
