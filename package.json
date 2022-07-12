@@ -13,7 +13,8 @@
     "prepare": "husky install",
     "analyze": "webpack --config webpack.prod-analyze.ts",
     "checkTs": "tsc --noEmit",
-    "test": "jest"
+    "test": "jest",
+    "eslint": "eslint --ext js,ts,tsx"
   },
   "repository": {
     "type": "git",
